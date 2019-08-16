@@ -1,71 +1,126 @@
-pipeline {
-    agent {
-        node { 
-  		label 'master'
-  		customWorkspace 'D:/jenkins_ws/ws1' 
-  	    } 
+def FAILED_STAGE
+pipeline 
+ {
 
-    }
-    
-    options{
-  	buildDiscarder(logRotator(numToKeepStr:'5'))
-  	timeout(time : 30, unit: 'MINUTES')
-  }
-
-
-    
-    stages {
-    
-        stage('build') {
-            steps {
-                  deleteDir()
-		          git(url: 'https://github.com/KritikaSri/Pet_clinic.git', branch: 'master')
-
-            }
-        }
-        
-        stage('Build') {
-            steps {
-               
-                echo "maven clean build"
-               
-                	
-   		            bat 'mvn clean compile package'   
-                
-            }
-        }  
-        /*
-        stage('SCA_Sonar') {
-            steps {
-                    
-   		            bat 'mvn sonar:sonar'   
-                //}
-            }
-        }
-        */
-        stage('Test') {
-            steps {
-                
-                    
-                    bat 'mvn test'
-               
-	        }
-        }
-        
-        stage('code_coverage') {
-            steps {
-                jacoco(deltaBranchCoverage: '10', deltaClassCoverage: '10', deltaComplexityCoverage: '10', deltaInstructionCoverage: '10', deltaLineCoverage: '10', deltaMethodCoverage: '20')
-            }
-        }
-        
-        
-        
-        stage('Tomcat Deploy') {
-            steps {
-               bat returnStatus: true, script: 'copy .\\target\\petclinic.war D:\\Prog_Files\\Tomcat\\apache-tomcat-8.5.34\\webapps\\'
-            }
-        }
-
-
-    }
-}
+	tools
+	{
+		maven 'M2_Home'
+		jdk 'JAVA_HOME'
+	}
+	options
+	{
+		buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3'))
+		
+	}
+	agent 
+	{
+		node 
+		{	
+			label ''
+		}
+	}
+	stages
+	{
+		
+		stage('code checkout')
+		{
+			steps
+			{
+				script
+				{
+					FAILED_STAGE=env.STAGE_NAME
+				}
+				git 'https://github.com/KritikaSri/springboot-mongodb.git'
+				bat "mvn clean"
+			}
+	  
+		}
+		stage('compile')
+		{
+			
+		  	steps
+			{
+				script
+				{
+					FAILED_STAGE=env.STAGE_NAME
+				}
+				bat "mvn compile"
+			}
+			
+	  
+		}
+		/*stage('sonarqube analysis')
+		{
+			
+			steps
+			{
+				script
+				{
+					FAILED_STAGE=env.STAGE_NAME
+				}
+				withSonarQubeEnv('Sonar')
+				{
+					bat 'mvn sonar:sonar -Dsonar.host.url="http://10.76.81.93:2500" '
+				}	
+				timeout(time: 10, unit: 'MINUTES') 
+				{
+					waitForQualityGate abortPipeline: true
+				}
+			}
+		}
+		stage('unit test')
+		{
+			steps
+			{
+				bat "mvn test -Dmaven.test.failure.ignore=true"
+				
+				
+			}
+		}
+		stage('code coverage')
+		{
+			steps
+			{
+				bat 'mvn package -Dmaven.test.failure.ignore=true'
+				
+			}
+		}
+		*/
+		stage('performance and security')
+		{
+				steps
+					{
+						bat "mvn findbugs:findbugs -Dmaven.test.failure.ignore=true"
+					
+						bat "mvn verify -Dmaven.test.failure.ignore=true"
+					}
+		}
+		stage('war')
+		{
+			steps
+			{
+				script
+				{
+					FAILED_STAGE=env.STAGE_NAME
+				}
+				bat "mvn war:war"
+			}
+		}
+		stage('deploy to artifactory')
+		{
+			steps
+			{
+				bat "mvn deploy"
+			}
+		}
+		stage('integration testing')
+		{
+			steps
+			{ 
+				bat "mvn integration-test -Dmaven.test.failure.ignore=true"
+			}
+		}
+		
+	 }
+	}
+  

@@ -30,7 +30,7 @@ pipeline
 				{
 					FAILED_STAGE=env.STAGE_NAME
 				}
-				git 'https://github.com/KritikaSri/springboot-mongodb.git'
+				git 'https://github.com/KritikaSri/Pet_clinic.git'
 				bat "mvn clean"
 			}
 	  
@@ -49,7 +49,7 @@ pipeline
 			
 	  
 		}
-		/*stage('sonarqube analysis')
+		stage('sonarqube analysis')
 		{
 			
 			steps
@@ -85,7 +85,7 @@ pipeline
 				
 			}
 		}
-		*/
+		
 		stage('performance and security')
 		{
 				steps

@@ -19,7 +19,7 @@ pipeline {
         stage('build') {
             steps {
                   deleteDir()
-		          git(url: 'http://infygit.ad.infosys.com/Subir_Ghosh03/pet_clinic.git', branch: 'master', credentialsId: 'infyid')
+		          git(url: 'https://github.com/KritikaSri/Pet_clinic.git', branch: 'master')
 
             }
         }

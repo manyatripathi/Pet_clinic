@@ -27,6 +27,8 @@
 		<webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
 		<webjars-jquery.version>2.2.4</webjars-jquery.version>
 		<wro4j.version>1.8.0</wro4j.version>
+         <!-- Optional URL to server. Default value is http://localhost:9000 -->
+         <sonar.host.url>http://10.76.81.93:2500</sonar.host.url>
 
 		<jacoco.version>0.8.1</jacoco.version>
 

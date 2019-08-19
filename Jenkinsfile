@@ -60,7 +60,7 @@ pipeline
 				}
 				withSonarQubeEnv('Sonar')
 				{
-					bat 'mvn sonar:sonar 
+					bat 'mvn sonar:sonar' 
 				}	
 				/*timeout(time: 10, unit: 'MINUTES') 
                                

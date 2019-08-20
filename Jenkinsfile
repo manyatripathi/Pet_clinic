@@ -114,13 +114,13 @@ pipeline
 				bat "mvn deploy -Dmaven.test.failure.ignore=true"
 			}
 		}
-		stage('integration testing')
+		 /* stage('integration testing')
 		{
 			steps
 			{ 
 				bat "mvn integration-test -Dmaven.test.failure.ignore=true"
 			}
-		}
+		} */
 		
 	 }
 	}

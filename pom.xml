@@ -114,11 +114,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!--dependency>
+		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>3.141.5</version>
-		</dependency-->
+		</dependency>
 
 		<!-- <dependency>
 			<groupId>org.testng</groupId>

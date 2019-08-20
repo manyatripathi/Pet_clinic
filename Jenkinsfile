@@ -30,7 +30,7 @@ pipeline
 				{
 					FAILED_STAGE=env.STAGE_NAME
 				}
-				git 'https://github.com/KritikaSri/Pet_clinic.git'
+				git 'https://github.com/manyatripathi/Pet_clinic'
 				bat "mvn clean"
 			}
 	  

@@ -128,7 +128,7 @@
 		</dependency-->
 
 	</dependencies>
-			<distributionManagement>
+			<!--distributionManagement>
 					<repository>
 					<id>central</id>
 					<name>pet-clinic-releases</name>
@@ -140,7 +140,7 @@
 					<name>pet-clinic-snapshots</name>
 					<url>http://10.76.81.93:8088/artifactory/assignment</url>
 					</snapshotRepository>
-			</distributionManagement>
+			</distributionManagement-->
 
 	<build>
 		<finalName>petclinic</finalName>

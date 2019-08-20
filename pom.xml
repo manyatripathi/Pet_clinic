@@ -28,6 +28,9 @@
 		<webjars-jquery.version>2.2.4</webjars-jquery.version>
 		<wro4j.version>1.8.0</wro4j.version>
         <jacoco.version>0.8.1</jacoco.version>
+		<baseNexusURL>${baseNexusURL}</baseNexusURL>
+        <targetRepositoryID>${repositoryId}</targetRepositoryID>
+        <package.final.name>${project.artifactId}</package.final.name>
 
 	</properties>
 
@@ -129,6 +132,19 @@
 		</dependency> -->
 
 	</dependencies>
+			<distributionManagement>
+					<repository>
+					<id>central</id>
+					<name>pet-clinic-releases</name>
+					<url>http://10.76.81.93:8088/artifactory/assignment</url>
+
+					</repository>
+					<snapshotRepository>
+					<id>snapshots</id>
+					<name>pet-clinic-snapshots</name>
+					<url>http://10.76.81.93:8088/artifactory/assignment</url>
+					</snapshotRepository>
+			</distributionManagement>
 
 	<build>
 		<finalName>petclinic</finalName>

@@ -162,16 +162,6 @@
                         <goals>
                             <goal>deploy-file</goal>
                         </goals>
-                        <configuration>
-                            <file>${file}</file>
-                            <groupId>${groupId}</groupId>
-                            <artifactId>${artifactId}</artifactId>
-                            <version>${version}</version>
-                            <packaging>${packaging}</packaging>
-                            <generatePom>true</generatePom>
-                            <repositoryId>${targetRepositoryID}</repositoryId>
-                            <url>${baseNexusURL}/content/repositories/${targetRepositoryID}</url>
-                        </configuration>
                     </execution>
                 </executions>
 				</plugin>

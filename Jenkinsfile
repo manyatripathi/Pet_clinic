@@ -104,7 +104,7 @@ pipeline
 				{
 					FAILED_STAGE=env.STAGE_NAME
 				}
-				bat "mvn war:war"
+				bat "mvn war:war -Dmaven.test.failure.ignore=true"
 			}
 		}
 		stage('deploy to artifactory')

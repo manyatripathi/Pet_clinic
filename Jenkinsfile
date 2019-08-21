@@ -49,7 +49,7 @@ pipeline
 			
 	  
 		}
-		/*stage('sonarqube analysis')
+		stage('sonarqube analysis')
 		{
 			
 			steps
@@ -73,7 +73,7 @@ pipeline
 		{
 			steps
 			{
-				bat "mvn test -Dmaven.test.failure.ignore=true"
+				bat "mvn test "
 				
 				
 			}
@@ -82,7 +82,7 @@ pipeline
 		{
 			steps
 			{
-				bat 'mvn package -Dmaven.test.failure.ignore=true'
+				bat 'mvn package'
 				
 			}
 		}
@@ -91,11 +91,11 @@ pipeline
 		{
 				steps
 					{
-						bat "mvn findbugs:findbugs -Dmaven.test.failure.ignore=true"
+						bat "mvn findbugs:findbugs"
 					
-						bat "mvn verify -Dmaven.test.failure.ignore=true"
+						bat "mvn verify"
 					}
-		}*/
+		}
 		stage('war')
 		{
 			steps
@@ -104,23 +104,23 @@ pipeline
 				{
 					FAILED_STAGE=env.STAGE_NAME
 				}
-				bat "mvn war:war -Dmaven.test.failure.ignore=true"
+				bat "mvn war:war "
 			}
 		}
 		stage('deploy to artifactory')
 		{
 			steps
 			{
-				bat "mvn deploy -Dmaven.test.failure.ignore=true"
+				bat "mvn deploy"
 			}
 		}
-		 /* stage('integration testing')
-		{
-			steps
-			{ 
-				bat "mvn integration-test -Dmaven.test.failure.ignore=true"
-			}
-		} */
+		//stage('integration testing')
+		//{
+		//	steps
+		//	{ 
+		//		bat "mvn integration-test"
+		//	}
+		//}
 		
 	 }
 	}

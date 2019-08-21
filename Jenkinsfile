@@ -49,6 +49,23 @@ pipeline
 			
 	  
 		}
+                stage('unit test')
+		{
+			steps
+			{
+				bat "mvn test "
+				
+				
+			}
+		}
+                stage('code coverage')
+		{
+			steps
+			{
+				bat 'mvn package'
+				
+			}
+		}
 		stage('sonarqube analysis')
 		{
 			
@@ -69,24 +86,7 @@ pipeline
 				} 
 			}
 		}
-		stage('unit test')
-		{
-			steps
-			{
-				bat "mvn test "
-				
-				
-			}
-		}
-		stage('code coverage')
-		{
-			steps
-			{
-				bat 'mvn package'
-				
-			}
-		}
-		
+			
 		//stage('performance and security')
 		//{
 		//		steps

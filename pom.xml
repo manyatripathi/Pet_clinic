@@ -132,12 +132,12 @@
                 <repository>
                     <id>central</id>
                     <name>PUNHJWADMDOSTP-releases</name>
-                    <url>http://10.76.81.93:8088/artifactory/assignment</url>
+                    <url>http://10.76.81.93:8088/artifactory/assignment/Releases</url>
                 </repository>
                 <snapshotRepository>
                     <id>snapshots</id>
                     <name>PUNHJWADMDOSTP-snapshots</name>
-                    <url>http://10.76.81.93:8088/artifactory/assignment</url>
+                    <url>http://10.76.81.93:8088/artifactory/assignment/Snapshots</url>
                 </snapshotRepository>
             </distributionManagement>
 

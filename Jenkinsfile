@@ -87,15 +87,15 @@ pipeline
 			}
 		}
 		
-		stage('performance and security')
-		{
-				steps
-					{
-						bat "mvn findbugs:findbugs"
-					
-						bat "mvn verify"
-					}
-		}
+		//stage('performance and security')
+		//{
+		//		steps
+		//			{
+		//				bat "mvn findbugs:findbugs"
+		//			
+		//				bat "mvn verify"
+		//			}
+		//}
 		stage('war')
 		{
 			steps

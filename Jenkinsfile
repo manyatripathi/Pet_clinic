@@ -104,7 +104,7 @@ pipeline
 				{
 					FAILED_STAGE=env.STAGE_NAME
 				}
-				bat "mvn war:war "
+				sh "mvn war:war "
 			}
 		}
                 /*

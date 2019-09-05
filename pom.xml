@@ -175,17 +175,6 @@
                   <goals>
                      <goal>jmeter</goal>
                   </goals>
-<!--                   <configuration>
-                     <testFilesIncluded>
-                        <jMeterTestFile>${JmeterTestFile}.jmx</jMeterTestFile>
-                     </testFilesIncluded>
-                     <testResultsTimestamp>false</testResultsTimestamp>
-                     <propertiesUser>
-                        <Threadcount>${Threadcount}</Threadcount>
-                        <Loopcount>${Loopcount}</Loopcount>
-                        <Rampup>${RampUp}</Rampup>
-                     </propertiesUser>
-                  </configuration> -->
                </execution>
             </executions>
          </plugin>

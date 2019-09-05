@@ -31,11 +31,7 @@
 	</properties>
 
 	<dependencies>
-        <dependency>
-		    <groupId>com.lazerycode.jmeter</groupId>
-		    <artifactId>jmeter-maven-plugin</artifactId>
-		    <version>2.6.0</version>
-		</dependency>
+        
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -179,7 +175,7 @@
                   <goals>
                      <goal>jmeter</goal>
                   </goals>
-                  <configuration>
+<!--                   <configuration>
                      <testFilesIncluded>
                         <jMeterTestFile>${JmeterTestFile}.jmx</jMeterTestFile>
                      </testFilesIncluded>
@@ -189,7 +185,7 @@
                         <Loopcount>${Loopcount}</Loopcount>
                         <Rampup>${RampUp}</Rampup>
                      </propertiesUser>
-                  </configuration>
+                  </configuration> -->
                </execution>
             </executions>
          </plugin>

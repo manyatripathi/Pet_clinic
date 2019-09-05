@@ -4,7 +4,7 @@ pipeline
 
 	tools
 	{
-		maven 'M2_Home'
+		maven 'MAVEN_Home'
 		jdk 'JAVA_HOME'
 	}
 	options
@@ -31,7 +31,7 @@ pipeline
 					FAILED_STAGE=env.STAGE_NAME
 				}
 				git 'https://github.com/manyatripathi/Pet_clinic'
-				bat "mvn clean"
+				sh "mvn clean"
 			}
 	  
 		}
@@ -44,12 +44,12 @@ pipeline
 				{
 					FAILED_STAGE=env.STAGE_NAME
 				}
-				bat "mvn compile"
+				sh "mvn compile"
 			}
 			
 	  
 		}
-                stage('unit test')
+                /*stage('unit test')
 		{
 			steps
 			{
@@ -86,14 +86,14 @@ pipeline
 				} 
 			}
 		}
-			
+		*/	
 		stage('performance and security')
 		{
 				steps
 					{
-						bat "mvn findbugs:findbugs"
+						//bat "mvn findbugs:findbugs"
 					
-						bat "mvn verify"
+						sh "mvn verify"
 					}
 		}
 		stage('war')
@@ -107,13 +107,14 @@ pipeline
 				bat "mvn war:war "
 			}
 		}
+                /*
 		stage('deploy to artifactory')
 		{
 			steps
 			{
-				bat "mvn deploy"
+				sh "mvn deploy"
 			}
-		}
+		}*/
 		//stage('integration testing')
 		//{
 		//	steps

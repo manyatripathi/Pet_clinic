@@ -96,7 +96,7 @@ pipeline
 						sh "mvn verify"
 					}
 		}
-		stage('war')
+		/*stage('war')
 		{
 			steps
 			{
@@ -106,7 +106,7 @@ pipeline
 				}
 				sh "mvn war:war "
 			}
-		}
+		}*/
                 /*
 		stage('deploy to artifactory')
 		{
